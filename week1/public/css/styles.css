@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cardContainer {
+  width: 20em;
+}
+
+#submit{
+  width: 10em;
+}
