@@ -1,13 +1,16 @@
 "use strict";
 
-let submit = document.querySelector("#submit");
-submit.addEventListener("click", renderCards, false);
+let submit = document.querySelector("#form");
+submit.addEventListener("change", renderCards, false);
 
 function renderCards() {
-  const app = document.querySelector("#root");
-  console.log("render");
 
-  let url = "https://api.magicthegathering.io/v1/cards";
+  removeCards()
+  const app = document.querySelector("#root");
+  let cmc = document.querySelector("#CMC").value
+  let rarity = document.querySelector("#rarity").value
+
+  let url = `https://api.magicthegathering.io/v1/cards?rarity=${rarity}&cmc=${cmc}`;
 
   fetch(url)
     .then(data => {
@@ -26,6 +29,15 @@ function renderCards() {
         }
       });
     });
+}
+
+function removeCards() {
+    // Removes an element from the document
+    let cards = document.querySelectorAll(".cardContainer");
+    cards.forEach(card=>{
+      card.parentNode.removeChild(card);
+    })
+
 }
 
 // 0:

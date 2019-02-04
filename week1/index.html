@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="public/css/styles.css" />
-  <title>Document</title>
+  <title>MTG Card search</title>
 </head>
 <body id="root">
-  <form action="#" id="form" method="get" onsubmit="renderCards()">
-    <label for="name">Name</label>
-    <input id="name" type="text" name="name" value="">
+  <form action="#" id="form" method="get">
     <label for="CMC">Converted Mana Cost</label>
     <select id="CMC" type="select" name="CMC" value="">
       <option value="0">0</option>
@@ -24,27 +22,15 @@
       <option value="8">8</option>
       <option value="9">9+</option>
     </select>
-    <label for="colors">Colors</label>
-    <label for="green">Green</label>
-    <input type="checkbox" name="green" value="Green">
-    <label for="red">Red</label>
-    <input type="checkbox" name="red" value="Red">
-    <label for="blue">Blue</label>
-    <input type="checkbox" name="blue" value="Blue">
-    <label for="black">Black</label>
-    <input type="checkbox" name="black" value="Black">
-    <label for="White">White</label>
-    <input type="checkbox" name="white" value="White">
     <label for="rarity">Rarity</label>
     <select id="rarity" class="rarity" name="rarity">
       <option value="Common">Common</option>
       <option value="Uncommon">Uncommon</option>
       <option value="Rare">Rare</option>
-      <option value="Mythicrare">Mythic Rare</option>
+      <option value="Mythic Rare">Mythic Rare</option>
     </select>
-    <input id="submit" type="button"/>
+    <input id="submit" type="button" value="search"/>
   </form>
-
 
   <script src="public/js/app.js"></script>
 </body>
