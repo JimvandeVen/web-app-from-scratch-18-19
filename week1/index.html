@@ -11,6 +11,7 @@
   <form action="#" id="form" method="get">
     <label for="CMC">Converted Mana Cost</label>
     <select id="CMC" type="select" name="CMC" value="">
+      <option value="" selected disabled hidden>Choose here</option>
       <option value="0">0</option>
       <option value="1">1</option>
       <option value="2">2</option>
@@ -24,12 +25,12 @@
     </select>
     <label for="rarity">Rarity</label>
     <select id="rarity" class="rarity" name="rarity">
+      <option value="" selected disabled hidden>Choose here</option>
       <option value="Common">Common</option>
       <option value="Uncommon">Uncommon</option>
       <option value="Rare">Rare</option>
       <option value="Mythic Rare">Mythic Rare</option>
     </select>
-    <input id="submit" type="button" value="search"/>
   </form>
 
   <script src="public/js/app.js"></script>

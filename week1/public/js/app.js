@@ -4,40 +4,58 @@ let submit = document.querySelector("#form");
 submit.addEventListener("change", renderCards, false);
 
 function renderCards() {
-
-  removeCards()
+  removeCards();
   const app = document.querySelector("#root");
-  let cmc = document.querySelector("#CMC").value
-  let rarity = document.querySelector("#rarity").value
+  let cmc = document.querySelector("#CMC").value;
+  let rarity = document.querySelector("#rarity").value;
 
   let url = `https://api.magicthegathering.io/v1/cards?rarity=${rarity}&cmc=${cmc}`;
 
   fetch(url)
     .then(data => {
+      console.log("searching");
       return data.json();
     })
     .then(res => {
-      res.cards.forEach(card => {
-        if (card.imageUrl !== undefined) {
-          const cardContainer = document.createElement("div");
-          cardContainer.setAttribute("class", "cardContainer");
-          app.appendChild(cardContainer);
-
-          const cardImg = document.createElement("img");
-          cardImg.src = card.imageUrl;
-          cardContainer.appendChild(cardImg);
-        }
+      let filteredData = res.cards.filter(card => {
+        let isLand = true;
+        card.types.forEach(type => {
+          if (type == "Land") {
+            console.log("true", card);
+            isLand = false;
+          }
+        });
+        return isLand;
       });
+      console.log(filteredData);
+
+      if (filteredData.length == 0) {
+        const cardContainer = document.createElement("div");
+        cardContainer.setAttribute("class", "cardContainer");
+        cardContainer.innerText = "No cards availible";
+        app.appendChild(cardContainer);
+      } else {
+        filteredData.forEach(card => {
+          if (card.imageUrl !== undefined) {
+            const cardContainer = document.createElement("div");
+            cardContainer.setAttribute("class", "cardContainer");
+            app.appendChild(cardContainer);
+
+            const cardImg = document.createElement("img");
+            cardImg.src = card.imageUrl;
+            cardContainer.appendChild(cardImg);
+          }
+        });
+      }
     });
 }
 
 function removeCards() {
-    // Removes an element from the document
-    let cards = document.querySelectorAll(".cardContainer");
-    cards.forEach(card=>{
-      card.parentNode.removeChild(card);
-    })
-
+  // Removes an element from the document
+  let cards = document.querySelectorAll(".cardContainer");
+  cards.forEach(card => {
+    card.parentNode.removeChild(card);
+  });
 }
 
 // 0:
