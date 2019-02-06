@@ -8,8 +8,9 @@ function getData() {
   let cmc = document.querySelector("#CMC").value;
   let rarity = document.querySelector("#rarity").value;
   let type = document.querySelector("#type").value;
+  let colors = document.querySelector("#colors").value;
 
-  let url = `https://api.magicthegathering.io/v1/cards?types=${type}&rarity=${rarity}&cmc=${cmc}`;
+  let url = `https://api.magicthegathering.io/v1/cards?types=${type}&rarity=${rarity}&cmc=${cmc}&colors=${colors}`;
 
   fetch(url)
     .then(data => {
@@ -44,7 +45,7 @@ function noCards(){
 
 function populateContainer(cards){
   cards.forEach(card => {
-    
+
     if (card.imageUrl == undefined) return
 
     const cardContainer = document.createElement("div");
@@ -52,6 +53,7 @@ function populateContainer(cards){
     app.appendChild(cardContainer);
 
     const cardImg = document.createElement("img");
+    cardImg.setAttribute("data-multiverseid", card.multiverseid)
     cardImg.src = card.imageUrl;
     cardContainer.appendChild(cardImg);
 
