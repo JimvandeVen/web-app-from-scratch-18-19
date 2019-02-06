@@ -31,7 +31,19 @@
       <option value="Rare">Rare</option>
       <option value="Mythic Rare">Mythic Rare</option>
     </select>
+    <label for="type">Type</label>
+    <select id="type" class="type" name="type">
+      <option value="" selected disabled hidden>Choose here</option>
+      <option value="Creature">Creature</option>
+      <option value="Instant">Instant</option>
+      <option value="Sorcery">Sorcery</option>
+      <option value="Enchantment">Enchantment</option>
+      <option value="Atrifact">Artifact</option>
+      <option value="Planeswalker">Planeswalker</option>
+      <option value="Land">Land</option>
+    </select>
   </form>
+  <button id="submit">Search</button>
 
   <script src="public/js/app.js"></script>
 </body>

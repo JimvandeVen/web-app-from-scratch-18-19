@@ -1,57 +1,64 @@
 "use strict";
 
-let submit = document.querySelector("#form");
-submit.addEventListener("change", renderCards, false);
+let submit = document.querySelector("#submit");
+const app = document.querySelector("#root");
+submit.addEventListener("click", getData, false);
 
-function renderCards() {
-  removeCards();
-  const app = document.querySelector("#root");
+function getData() {
   let cmc = document.querySelector("#CMC").value;
   let rarity = document.querySelector("#rarity").value;
+  let type = document.querySelector("#type").value;
 
-  let url = `https://api.magicthegathering.io/v1/cards?rarity=${rarity}&cmc=${cmc}`;
+  let url = `https://api.magicthegathering.io/v1/cards?types=${type}&rarity=${rarity}&cmc=${cmc}`;
 
   fetch(url)
     .then(data => {
-      console.log("searching");
       return data.json();
     })
     .then(res => {
-      let filteredData = res.cards.filter(card => {
-        let isLand = true;
-        card.types.forEach(type => {
-          if (type == "Land") {
-            console.log("true", card);
-            isLand = false;
-          }
-        });
-        return isLand;
-      });
-      console.log(filteredData);
+      // let filteredData = res.cards.filter(card => {
+      //   let isType = card.types.includes(type);
+      //   return isType;
+      // });
+      console.log(res)
+      removeCards();
+      renderCards(res.cards)
 
-      if (filteredData.length == 0) {
-        const cardContainer = document.createElement("div");
-        cardContainer.setAttribute("class", "cardContainer");
-        cardContainer.innerText = "No cards availible";
-        app.appendChild(cardContainer);
-      } else {
-        filteredData.forEach(card => {
-          if (card.imageUrl !== undefined) {
-            const cardContainer = document.createElement("div");
-            cardContainer.setAttribute("class", "cardContainer");
-            app.appendChild(cardContainer);
-
-            const cardImg = document.createElement("img");
-            cardImg.src = card.imageUrl;
-            cardContainer.appendChild(cardImg);
-          }
-        });
-      }
     });
 }
 
+function renderCards(cards){
+  if (cards.length == 0) {
+    noCards()
+  } else {
+    populateContainer(cards)
+  }
+}
+
+function noCards(){
+  const cardContainer = document.createElement("div");
+  cardContainer.setAttribute("class", "cardContainer");
+  cardContainer.innerText = "No cards availible";
+  app.appendChild(cardContainer);
+}
+
+function populateContainer(cards){
+  cards.forEach(card => {
+    
+    if (card.imageUrl == undefined) return
+
+    const cardContainer = document.createElement("div");
+    cardContainer.setAttribute("class", "cardContainer");
+    app.appendChild(cardContainer);
+
+    const cardImg = document.createElement("img");
+    cardImg.src = card.imageUrl;
+    cardContainer.appendChild(cardImg);
+
+  });
+}
+
 function removeCards() {
-  // Removes an element from the document
   let cards = document.querySelectorAll(".cardContainer");
   cards.forEach(card => {
     card.parentNode.removeChild(card);
