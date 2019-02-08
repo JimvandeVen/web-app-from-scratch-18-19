@@ -2,17 +2,34 @@
 
 In dit vak gaan we een web app maken zonder frameworks of onnodige libraries, dus zoveel mogelijk met native HTML, CSS & JavaScript. Het eindproduct is een modulair opgezet prototype voor een single page web app. Data wordt opgehaald uit een externe API, waar nodig gemanipuleerd en vervolgens getoond in de Web App. Je leert hoe je structuur aanbrengt in je code en hoe je hiermee 'from scratch' een (prototype voor een) web app maakt. Met deze kennis begrijp je daarnaast beter hoe bestaande api’s, libraries en frameworks werken.
 
-## Week 1 - Hello API 🐒
-
 [DEMO](https://gifted-albattani-e5c23d.netlify.com/)
 
+## Inleiding
 Mijn applicatie is een search engine waarin je alle magic kaarten op kan zoeken. Dit is in de vorm van een klein formulier met een aantal in te vullen velden. Met na het invullen van de form krijg je een selectie van de kaarten te zien die aan jouw filters voldoen. Tot een max van 100 kaarten. Deze kaarten worden opgehaald bij een API waar meer dan 10.000 kaarten op staan. Het doel van de applicatie is om de verschillende kaarten op te kunnen zoeken.
 
+## Actor diagram
+
+![Actor diagram](week1/actordiagram.png)
+
+## API 
+
+De [API](https://docs.magicthegathering.io/) die ik gebruik is de onofficiële REST interface voor Magic: The Gathering. Deze API returned maximaal 100 kaarten per call. De data die je terugkrijgt is in JSON. Je kan maximaal 5000 calls per uur doen.
+
+## Interaction diagram
+
+TBA
+
+## Designs en best Practices
+
+Een van de best practices die ik heb gebruikt is Functional programming.
+
+## Wishlist
+
+- [ ] Detail pagina
+- [ ] Meer onderdelen in de form verwerken
+- [ ] Code splitsen in modules
 
 
-
-
-Welke actoren zitten er in jouw applicatie? (actor diagram)
 Welke API wordt gebruikt en wat zijn de beperkingen? (rate limit)
 Hoe flowed interactie door de applicatie? (interaction diagram)
 Welke design patterns en best practices
