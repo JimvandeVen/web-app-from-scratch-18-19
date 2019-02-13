@@ -21,7 +21,6 @@ function getData() {
       //   let isType = card.types.includes(type);
       //   return isType;
       // });
-      console.log(res)
       removeCards();
       renderCards(res.cards)
 
@@ -29,11 +28,13 @@ function getData() {
 }
 
 function renderCards(cards){
-  if (cards.length == 0) {
-    noCards()
-  } else {
-    populateContainer(cards)
-  }
+  return (cards.length == 0 ? noCards() : populateContainer(cards))
+  //
+  // if (cards.length == 0) {
+  //   noCards()
+  // } else {
+  //   populateContainer(cards)
+  // }
 }
 
 function noCards(){
@@ -46,22 +47,19 @@ function noCards(){
 function populateContainer(cards){
   const markup = cards.map(card => {
     if (card.imageUrl == undefined) return
-    return `<a href="${card.multiverseid}">
+    return `<a href="${card.multiverseid} class="cardContainer">
               <img src="${card.imageUrl}"></img>
             </a>`
   }).join('')
 
   document.querySelector(".cards").innerHTML = markup
 
-
   cards.innerHTML = markup
 }
 
 function removeCards() {
-  let cards = document.querySelectorAll(".cardContainer");
-  cards.forEach(card => {
-    card.parentNode.removeChild(card);
-  });
+  const markup = ``
+  document.querySelector(".cards").innerHTML = markup
 }
 
 // 0:
