@@ -1,6 +1,6 @@
 "use strict";
 
-let submit = document.querySelector("#submit");
+const submit = document.querySelector("#submit");
 const app = document.querySelector("#root");
 submit.addEventListener("click", getData, false);
 
@@ -44,20 +44,17 @@ function noCards(){
 }
 
 function populateContainer(cards){
-  cards.forEach(card => {
-
+  const markup = cards.map(card => {
     if (card.imageUrl == undefined) return
+    return `<a href="${card.multiverseid}">
+              <img src="${card.imageUrl}"></img>
+            </a>`
+  }).join('')
 
-    const cardContainer = document.createElement("div");
-    cardContainer.setAttribute("class", "cardContainer");
-    app.appendChild(cardContainer);
+  document.querySelector(".cards").innerHTML = markup
 
-    const cardImg = document.createElement("img");
-    cardImg.setAttribute("data-multiverseid", card.multiverseid)
-    cardImg.src = card.imageUrl;
-    cardContainer.appendChild(cardImg);
 
-  });
+  cards.innerHTML = markup
 }
 
 function removeCards() {
