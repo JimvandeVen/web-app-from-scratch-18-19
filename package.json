@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/JimvandeVen/web-app-from-scratch-18-19#readme",
   "dependencies": {
-    "easyrouter": "^2.0.2"
+    "easyrouter": "^2.0.2",
+    "http-server": "^0.11.1"
   }
 }

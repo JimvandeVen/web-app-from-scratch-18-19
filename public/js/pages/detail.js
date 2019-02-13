@@ -1,3 +1,19 @@
+import { removeCards } from "../cards.js"
+
+function getDetails(multiverseid){
+  let url = `https://api.magicthegathering.io/v1/cards?multiverseid=${multiverseid}`
+  fetch(url)
+    .then(data => {
+      return data.json();
+    })
+    .then(res => {
+
+      removeCards();
+      // console.log(res.cards[0])
+      detail(res.cards[0])
+    });
+}
+
 function detail(data) {
   const markup = `
     <h1>${data.name}</h1>
@@ -15,4 +31,4 @@ function detail(data) {
   document.querySelector(".cards").innerHTML = markup
 }
 
-export { detail }
+export { getDetails }
