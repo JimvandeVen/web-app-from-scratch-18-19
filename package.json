@@ -1,0 +1,22 @@
+{
+  "name": "web-app-from-scratch-18-19",
+  "version": "1.0.0",
+  "description": "magic card search engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JimvandeVen/web-app-from-scratch-18-19.git"
+  },
+  "author": "Jim van de Ven",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JimvandeVen/web-app-from-scratch-18-19/issues"
+  },
+  "homepage": "https://github.com/JimvandeVen/web-app-from-scratch-18-19#readme",
+  "dependencies": {
+    "easyrouter": "^2.0.2"
+  }
+}
