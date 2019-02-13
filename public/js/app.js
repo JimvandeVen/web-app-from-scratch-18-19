@@ -1,7 +1,10 @@
 "use strict";
 
+import { detail } from "./pages/detal.js"
+
 const submit = document.querySelector("#submit");
 const app = document.querySelector("#root");
+
 submit.addEventListener("click", getData, false);
 
 function getData() {
@@ -21,20 +24,14 @@ function getData() {
       //   let isType = card.types.includes(type);
       //   return isType;
       // });
+      window.data = res.cards
       removeCards();
       renderCards(res.cards)
-
     });
 }
 
 function renderCards(cards){
   return (cards.length == 0 ? noCards() : populateContainer(cards))
-  //
-  // if (cards.length == 0) {
-  //   noCards()
-  // } else {
-  //   populateContainer(cards)
-  // }
 }
 
 function noCards(){
@@ -47,7 +44,7 @@ function noCards(){
 function populateContainer(cards){
   const markup = cards.map(card => {
     if (card.imageUrl == undefined) return
-    return `<a href="${card.multiverseid} class="cardContainer">
+    return `<a href="#${card.multiverseid}" class="cardContainer">
               <img src="${card.imageUrl}"></img>
             </a>`
   }).join('')
@@ -61,6 +58,48 @@ function removeCards() {
   const markup = ``
   document.querySelector(".cards").innerHTML = markup
 }
+
+window.addEventListener("hashchange", ()=>{
+  let multiverseid = window.location.hash.substr(1)
+  console.log("changed hash", multiverseid)
+  if (multiverseid == ""){
+    renderCards(window.data)
+  } else {
+      getDetails(multiverseid)
+  }
+})
+
+function getDetails(multiverseid){
+  let url = `https://api.magicthegathering.io/v1/cards?multiverseid=${multiverseid}`
+  fetch(url)
+    .then(data => {
+      return data.json();
+    })
+    .then(res => {
+
+      removeCards();
+      // console.log(res.cards[0])
+      renderDetails(res.cards[0])
+    });
+}
+
+// function renderDetails(data){
+//   const markup = `
+//   <h1>${data.name}</h1>
+//   <img src="${data.imageUrl}"></img>
+//   <ul>
+//     <li>Colors: ${data.colors}</li>
+//     <li>Mana cost: ${data.manaCost}</li>
+//     <li>Original text: ${data.originalText}</li>
+//     <li>Original type: ${data.originalType}</li>
+//     <li>Set name: ${data.setName}</li>
+//     <li>Rarity: ${data.rarity}</li>
+//     <li>Subtypes: ${data.subtypes}</li>
+//   </ul>
+//   `
+//   document.querySelector(".cards").innerHTML = markup
+//
+// }
 
 // 0:
 // artist: "Steve Prescott"
