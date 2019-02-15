@@ -11,13 +11,13 @@ Mijn applicatie is een search engine waarin je alle magic kaarten op kan zoeken.
 
 De [API](https://docs.magicthegathering.io/) die ik gebruik is de onofficiële REST interface voor Magic: The Gathering. Deze API returned maximaal 100 kaarten per call. De data die je terugkrijgt is in JSON. Je kan maximaal 5000 calls per uur doen.
 
-## Actor diagram
+##  Actor diagram
 
-![Actor diagram](src/actorDiagram.png)
+
 
 ## Interaction diagram
 
-TBA
+![Interaction diagram](src/interactionDiagram.png)
 
 ## Designs en best Practices
 
