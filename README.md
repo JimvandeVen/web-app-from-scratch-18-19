@@ -25,9 +25,9 @@ Een van de best practices die ik heb gebruikt is Functional programming.
 
 ## Wishlist
 
-- [ ] Detail pagina
+- [x] Detail pagina
 - [ ] Meer onderdelen in de form verwerken
-- [ ] Code splitsen in modules
+- [x] Code splitsen in modules
 
 
 Welke API wordt gebruikt en wat zijn de beperkingen? (rate limit)
