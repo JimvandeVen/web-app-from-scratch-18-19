@@ -8,7 +8,7 @@ function removeCards() {
 }
 
 function renderCards(cards){
-  return (cards.length == 0 ? noCards() : populateList(cards))
+  (cards.length == 0 ? noCards() : populateList(cards))
 }
 
 function noCards(){
