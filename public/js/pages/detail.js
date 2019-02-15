@@ -12,11 +12,11 @@ function getDetails(multiverseid){
 
       removeCards();
       // console.log(res.cards[0])
-      detail(res.cards[0])
+      populateDetail(res.cards[0])
     });
 }
 
-function detail(data) {
+function populateDetail(data) {
   const markup = `
     <h1>${data.name}</h1>
     <img src="${data.imageUrl}"></img>
