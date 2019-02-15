@@ -7,13 +7,13 @@ In dit vak gaan we een web app maken zonder frameworks of onnodige libraries, du
 ## Inleiding
 Mijn applicatie is een search engine waarin je alle magic kaarten op kan zoeken. Dit is in de vorm van een klein formulier met een aantal in te vullen velden. Met na het invullen van de form krijg je een selectie van de kaarten te zien die aan jouw filters voldoen. Tot een max van 100 kaarten. Deze kaarten worden opgehaald bij een API waar meer dan 10.000 kaarten op staan. Het doel van de applicatie is om de verschillende kaarten op te kunnen zoeken.
 
-## Actor diagram
-
-![Actor diagram](src/actorDiagram.png)
-
 ## API 
 
 De [API](https://docs.magicthegathering.io/) die ik gebruik is de onofficiële REST interface voor Magic: The Gathering. Deze API returned maximaal 100 kaarten per call. De data die je terugkrijgt is in JSON. Je kan maximaal 5000 calls per uur doen.
+
+## Actor diagram
+
+![Actor diagram](src/actorDiagram.png)
 
 ## Interaction diagram
 
