@@ -9,7 +9,7 @@ Mijn applicatie is een search engine waarin je alle magic kaarten op kan zoeken.
 
 ## Actor diagram
 
-![Actor diagram](week1/actordiagram.png)
+![Actor diagram](src/actordiagram.png)
 
 ## API 
 
