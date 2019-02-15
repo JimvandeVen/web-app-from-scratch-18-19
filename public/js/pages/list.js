@@ -1,3 +1,5 @@
+"use strict";
+
 function populateList(cards){
   const markup = cards.map(card => {
     if (card.imageUrl == undefined) return

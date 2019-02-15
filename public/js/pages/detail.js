@@ -1,3 +1,5 @@
+"use strict"
+
 import { removeCards } from "../cards.js"
 
 function getDetails(multiverseid){

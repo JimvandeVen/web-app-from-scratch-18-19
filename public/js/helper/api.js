@@ -15,12 +15,7 @@ function getData() {
       return data.json();
     })
     .then(res => {
-      // let filteredData = res.cards.filter(card => {
-      //   let isType = card.types.includes(type);
-      //   return isType;
-      // });
       localStorage.setItem("data", JSON.stringify(res.cards))
-      console.log(removeCards)
       removeCards();
       renderCards(res.cards)
     });
