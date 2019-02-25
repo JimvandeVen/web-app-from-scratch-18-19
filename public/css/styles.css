@@ -8,6 +8,7 @@
 body {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .cardContainer {
@@ -19,4 +20,12 @@ img{
 
 #submit{
   width: 10em;
+}
+
+.loading{
+  z-index: 100;
+  position: fixed;
+  top: 40vh;
+  left: 50vw;
+  transform: translateX(-50%);
 }

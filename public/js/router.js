@@ -1,7 +1,6 @@
 "use strict";
 
 import { getDetails } from "./pages/detail.js"
-
 import { removeCards, renderCards } from "./cards.js"
 
 class Router {
@@ -11,8 +10,8 @@ class Router {
   init() {
     window.addEventListener("hashchange", ()=>{
       let multiverseid = window.location.hash.substr(1)
-      console.log("changed hash", multiverseid)
       if (multiverseid == ""){
+        removeCards()
         let data = JSON.parse(localStorage.getItem("data"))
         renderCards(data)
       } else {

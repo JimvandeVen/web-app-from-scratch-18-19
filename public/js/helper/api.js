@@ -1,8 +1,10 @@
 "use strict";
 
 import { removeCards, renderCards } from "../cards.js"
+import { addLoading } from "../../loading.js"
 
-function getData() {
+async function getData() {
+  addLoading()
   let cmc = document.querySelector("#CMC").value;
   let rarity = document.querySelector("#rarity").value;
   let type = document.querySelector("#type").value;
@@ -10,7 +12,7 @@ function getData() {
 
   let url = `https://api.magicthegathering.io/v1/cards?types=${type}&rarity=${rarity}&cmc=${cmc}&colors=${colors}`;
 
-  fetch(url)
+  let result = await fetch(url)
     .then(data => {
       return data.json();
     })
@@ -19,6 +21,7 @@ function getData() {
       removeCards();
       renderCards(res.cards)
     });
+
 }
 
 export { getData }

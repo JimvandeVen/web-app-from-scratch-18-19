@@ -12,10 +12,11 @@ function renderCards(cards){
 }
 
 function noCards(){
+  const cards = document.querySelector(".cards")
   const cardContainer = document.createElement("div");
   cardContainer.setAttribute("class", "cardContainer");
   cardContainer.innerText = "No cards availible";
-  app.appendChild(cardContainer);
+  cards.appendChild(cardContainer);
 }
 
 export { removeCards, renderCards }

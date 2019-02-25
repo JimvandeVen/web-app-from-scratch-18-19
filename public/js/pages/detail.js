@@ -1,10 +1,13 @@
 "use strict"
 
 import { removeCards } from "../cards.js"
+import { addLoading } from "../../loading.js"
 
-function getDetails(multiverseid){
+async function getDetails(multiverseid){
+  addLoading()
   let url = `https://api.magicthegathering.io/v1/cards?multiverseid=${multiverseid}`
-  fetch(url)
+
+  let result = await fetch(url)
     .then(data => {
       return data.json();
     })
@@ -31,6 +34,7 @@ function populateDetail(data) {
   `
 
   document.querySelector(".cards").insertAdjacentHTML("afterBegin", markup)
+  window.scrollTo(0,0)
 }
 
 export { getDetails }
