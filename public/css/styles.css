@@ -13,6 +13,9 @@ body {
 .cardContainer {
   width: 20em;
 }
+img{
+  width: 15em;
+}
 
 #submit{
   width: 10em;

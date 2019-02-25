@@ -9,9 +9,8 @@ function getDetails(multiverseid){
       return data.json();
     })
     .then(res => {
-
+      console.log(res);
       removeCards();
-      // console.log(res.cards[0])
       populateDetail(res.cards[0])
     });
 }
@@ -30,7 +29,8 @@ function populateDetail(data) {
       <li>Subtypes: ${data.subtypes}</li>
     </ul>
   `
-  document.querySelector(".cards").innerHTML = markup
+
+  document.querySelector(".cards").insertAdjacentHTML("afterBegin", markup)
 }
 
 export { getDetails }

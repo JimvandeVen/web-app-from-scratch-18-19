@@ -9,7 +9,6 @@ class Router {
 }
 
   init() {
-    // Set listener for router changes
     window.addEventListener("hashchange", ()=>{
       let multiverseid = window.location.hash.substr(1)
       console.log("changed hash", multiverseid)
