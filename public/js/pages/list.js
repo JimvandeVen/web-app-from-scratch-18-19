@@ -9,8 +9,6 @@ function populateList(cards){
   }).join('')
 
   document.querySelector(".cards").insertAdjacentHTML("afterBegin", markup)
-
-  // cards.insertAdjacentHTML = markup
 }
 
 export { populateList }

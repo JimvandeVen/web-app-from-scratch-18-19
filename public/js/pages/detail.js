@@ -1,6 +1,6 @@
 "use strict"
 
-import { removeCards } from "../cards.js"
+import { emptyDOM } from "../cards.js"
 import { addLoading } from "../../loading.js"
 
 async function getDetails(multiverseid){
@@ -12,8 +12,7 @@ async function getDetails(multiverseid){
       return data.json();
     })
     .then(res => {
-      console.log(res);
-      removeCards();
+      emptyDOM();
       populateDetail(res.cards[0])
     });
 }
@@ -32,7 +31,6 @@ function populateDetail(data) {
       <li>Subtypes: ${data.subtypes}</li>
     </ul>
   `
-
   document.querySelector(".cards").insertAdjacentHTML("afterBegin", markup)
   window.scrollTo(0,0)
 }

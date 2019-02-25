@@ -2,7 +2,7 @@
 
 import { populateList } from "./pages/list.js"
 
-function removeCards() {
+function emptyDOM() {
   const markup = ``
   document.querySelector(".cards").innerHTML = markup
 }
@@ -19,4 +19,4 @@ function noCards(){
   cards.appendChild(cardContainer);
 }
 
-export { removeCards, renderCards }
+export { emptyDOM, renderCards }
