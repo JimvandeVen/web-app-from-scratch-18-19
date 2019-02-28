@@ -4,6 +4,8 @@ In this course I'm building a web application without frameworks or unnececairy 
 
 [DEMO](https://gifted-albattani-e5c23d.netlify.com/)
 
+![Interaction diagram](src/screenshot.png)
+
 ## Intro
 My application is a search engine wherein you can find all existing magic the gathering cards. This is done with a small form with a few fields you need to fill in. After filling in the fields you get a selection of the cards that fall within your chosen filters. Up to 100 cards are shown. These cards are requested from an API where more than 10.000 cards exist. The goal is to search through those cards.
 
