@@ -1,6 +1,6 @@
 # Web App From Scratch @cmda-minor-web 18-19
 
-In this course I'm building a web application without frameworks or unnececairy librarys. So, as much as pussible, with plain html, css and javascript. The endproduct is a modular prototype for a single-page web app. Data is called from an external API and where nececairy manipulated and rendered in the web app. I'll learn to bring structure to my code and how to build a prototype from scratch. With this knowledge I will understand better how existing API's, libraries and frameworks work.
+In this course I'm building a web application without frameworks or unnecessary libraries. So, as much as possible, with plain html, css and javascript. The end product is a modular prototype for a single-page web app. Data is called from an external API and where necessary manipulated and rendered in the web app. I'll learn to bring structure to my code and how to build a prototype from scratch. With this knowledge I will understand better how existing API's, libraries and frameworks work.
 
 [DEMO](https://gifted-albattani-e5c23d.netlify.com/)
 
@@ -11,7 +11,7 @@ My application is a search engine wherein you can find all existing magic the ga
 
 ## API 
 
-The [API](https://docs.magicthegathering.io/) I'm using is the onofficial REST interface for Magic: The Gathering. This API returns a maximum of 100 cards per call. The data you get is JSON. There is a maximum of 5000 calls per hour.
+The [API](https://docs.magicthegathering.io/) I'm using is the unofficial REST interface for Magic: The Gathering. This API returns a maximum of 100 cards per call. The data you get is JSON. There is a maximum of 5000 calls per hour.
 
 ##  Actor diagram
 
@@ -22,13 +22,13 @@ The [API](https://docs.magicthegathering.io/) I'm using is the onofficial REST i
 ![Interaction diagram](src/interactionDiagram(1).png)
 
 
-## Designs en best Practices
+## Designs and best Practices
 
 One of the best practices I used is functional programming.
+I also used local storage to render the overview page when the user presses the back button in the browser.
 
 ## Wishlist
 
 - [x] Detail page
 - [ ] Add more parts to the form
 - [x] Separate code into modules
-
